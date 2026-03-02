@@ -1,0 +1,76 @@
+package controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import model.Libro;
+import service.LibrosService;
+
+@Controller
+public class LibroController {
+	
+	@Autowired
+	LibrosService librosService;
+	
+	@GetMapping({"/", "menu"})
+	public String menu() {
+		return "menu";
+	}
+	@GetMapping("goNuevo")
+	public String nuevo() {
+		return "nuevo";
+	}
+	@GetMapping("goBuscar")
+	public String goBuscar() {
+		return "buscar";
+	}
+	@GetMapping("goEliminar")
+	public String eliminar() {
+		return "eliminar";
+	}
+	
+	@PostMapping("alta")
+	public String alta(Model model,
+			@RequestParam("ISBN")String ISBN, 
+			@RequestParam("titulo")String titulo, 
+			@RequestParam("autor")String autor, 
+			@RequestParam("precio")double precio) {
+		Libro libro = new Libro(ISBN, titulo, autor, precio);
+		if(librosService.altaLibro(libro)) {
+			model.addAttribute("mensaje", "Libro añadido" );
+		}else {
+			model.addAttribute("mensaje", "Libro NO añadido, ISBN repetido");
+			
+		}
+		return "mensaje";
+	
+	}
+	
+	@PostMapping("baja")
+	public String baja(Model model, @RequestParam("ISBN")String ISBN) {
+		if(librosService.bajaLibro(ISBN)) {
+			model.addAttribute("mensaje", "Libro Eliminado");
+		}else {
+			model.addAttribute("mensaje", "Libro NO Eliminado, no existe libro");
+		}
+		return "mensaje";
+		
+	}
+	@GetMapping("buscar")
+	public String buscar(Model model, @RequestParam("ISBN") String ISBN) {
+		if(librosService.buscar(ISBN) != null) {
+			model.addAttribute("libro", librosService.buscar(ISBN));
+			return "datos";
+		}else {
+			model.addAttribute("resultado", "no se ha encontrado libro");
+		}
+		
+		return "resultado";
+	}
+
+}

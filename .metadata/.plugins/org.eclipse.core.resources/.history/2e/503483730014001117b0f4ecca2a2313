@@ -1,0 +1,29 @@
+package respository;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import model.Item;
+import repository.ItemsRepository;
+
+@Repository
+public class ItemsRepositoryImpl implements ItemsRepository {
+
+	@Override
+	public void save(Item item) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Item> findByTematica(String tematica) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Item findFirstByUrl(String url) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

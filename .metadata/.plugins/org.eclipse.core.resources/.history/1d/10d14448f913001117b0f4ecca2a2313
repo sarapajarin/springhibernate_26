@@ -1,0 +1,28 @@
+package respository;
+
+import java.util.List;
+
+import model.Item;
+import repository.ItemsRepository;
+
+public class ItemsRepositoryImpl implements ItemsRepository {
+
+	@Override
+	public void save(Item item) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Item> findByTematica(String tematica) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Item findFirstByUrl(String url) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

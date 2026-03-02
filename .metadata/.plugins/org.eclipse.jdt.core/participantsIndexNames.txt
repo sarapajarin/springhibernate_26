@@ -1,0 +1,3 @@
+INDEX VERSION 1.134
+C:\curso_spring\proyectos\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1745936054.index
+\01_prototipo_buscador\src\main\java

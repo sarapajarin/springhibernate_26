@@ -1,0 +1,36 @@
+package repository;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import model.Item;
+import repository.ItemsRepository;
+
+@Repository
+public class ItemsRepositoryImpl implements ItemsRepository {
+	
+	@PersistenceContext //es de JPA pero spring lo reconoce, nos permite usar el CRUD
+	EntityManager eManager; //operaciones muy basicas
+	
+	@Override
+	public void save(Item item) {
+		eManager.persist(item);
+
+	}
+
+	@Override
+	public List<Item> findByTematica(String tematica) {
+		
+		return null;
+	}
+
+	@Override
+	public Item findFirstByUrl(String url) {
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		<a href="inicio"><h1>BUSCAR</h1></a>
+		<a href="nuevo"><h1>NUEVO</h1></a>
+	</center>
+</body>
+</html>

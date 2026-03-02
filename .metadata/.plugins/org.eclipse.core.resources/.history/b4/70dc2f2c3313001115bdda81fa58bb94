@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		<form action="alta" method="post">
+			<h3>URL: </h3><input type=text>
+			<h3>Temática: </h3><input type=text>
+			<h3>Descripción: </h3><input type=text>
+			<button type="submit">Añadir</button>
+		</form>
+	</center>
+</body>
+</html>
