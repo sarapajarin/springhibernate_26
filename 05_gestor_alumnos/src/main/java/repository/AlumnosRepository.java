@@ -10,11 +10,13 @@ public interface AlumnosRepository {
 	//CREAR NUEVO ALUMNO
 	void save (Alumno alumno);
 	Alumno findByNombreAndCurso(String nombre, String curso);
-	
 	//BUSCADOR DE CURSOS
 	List<String> findAllCursos();
 	//MOSTRAR ALUMNOS CURSO
 	List<Alumno> findByCurso (String curso);
-	
+	//ELIMINAR ALUMNO
+	void removeById(int idAlumno);
+	//NOTA MEDIA
+	double averageByCurso(String curso);
 	
 }

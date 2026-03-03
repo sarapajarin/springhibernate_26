@@ -8,4 +8,5 @@ public interface AlumnosService {
 	boolean guardar(Alumno alumno);
 	List<String>mostrarCursos();
 	List<Alumno>mostrarAlumnosCurso(String curso);
+	void eliminar(int idAlumno);
 }

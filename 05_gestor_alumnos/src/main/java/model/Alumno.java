@@ -17,7 +17,7 @@ public class Alumno {
 	private String email;
 	private float nota;
 	public Alumno(int idAlumno, String nombre,String curso, String email, float nota) {
-		super();
+	
 		this.idAlumno = idAlumno;
 		this.nombre = nombre;
 		this.curso = curso;
@@ -27,11 +27,13 @@ public class Alumno {
 	
 	
 	public Alumno(String nombre, String curso, String email, float nota) {
-		super();
 		this.nombre = nombre;
 		this.curso = curso;
 		this.email = email;
 		this.nota = nota;
+	}
+	public Alumno() {
+		
 	}
 
 

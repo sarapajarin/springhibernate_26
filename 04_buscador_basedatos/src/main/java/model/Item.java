@@ -27,6 +27,9 @@ public class Item {
 		this.tematica = tematica;
 		this.descripcion = descripcion;
 	}
+	public Item() {
+		
+	}
 	public int getIdItem() {
 		return idItem;
 	}

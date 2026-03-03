@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import model.Alumno;
 
@@ -17,7 +18,7 @@ public class AlumnosRepositoryImpl implements AlumnosRepository {
 	@PersistenceContext
 	EntityManager eManager;
 	
-	@Transactional
+	@Transactional//todo lo que modifica la base de datos tiene que tener esta anotacion
 	@Override
 	public void save(Alumno alumno) {
 		eManager.persist(alumno);
@@ -48,6 +49,27 @@ public class AlumnosRepositoryImpl implements AlumnosRepository {
 		TypedQuery<String> query=eManager.createQuery(jpql,String.class);
 		return query.getResultList();
 		
+	}
+	
+	@Transactional
+	@Override
+	public void removeById(int idAlumno) {
+//		String jpql="delete from Alumno a where a.idAlumno=?1";
+//		Query query= eManager.createQuery(jpql);
+//		query.setParameter(1, idAlumno);
+//		query.executeUpdate();
+		Alumno a=eManager.find(Alumno.class, idAlumno);
+		if(a!=null) {
+			eManager.remove(a);
+		}
+	}
+
+	@Override
+	public double averageByCurso(String curso) { ///////////////////USANDO SQL EN VEZ DE JPQL
+		String sql= "select avg(nota) from alumnos where curso=?";
+		Query query= eManager.createNativeQuery(sql, Double.class);
+		query.setParameter(1, curso);
+		return (double) query.getSingleResult();
 	}
 
 }

@@ -29,6 +29,10 @@ public class AlumnosServiceImpl implements AlumnosService {
 	public List<Alumno> mostrarAlumnosCurso(String curso) {
 		return alumnosRepository.findByCurso(curso);
 	}
+	@Override
+	public void eliminar(int idAlumno) {
+		alumnosRepository.removeById(idAlumno);
+	}
 	
 }
 

@@ -19,11 +19,12 @@
 			<th>Email</th>
 			<th>Nota</th>
 		</tr>
-		<tr th:each="a:${alumnos}">
-			<th th:each="a:${a.nombre}"></th>
-			<th th:each="a:${a.email}"></th>
-			<th th:each="a:${a.nota}"></th>
-		</tr>
+		<tr th:each="a : ${alumnos}">
+	        <td th:text="${a.nombre}"></td>
+	        <td th:text="${a.email}"></td>
+	        <td th:text="${a.nota}"></td>
+	        <td><a th:href="@{baja(idAlumno=${a.idAlumno})}">Eliminar</a></td>
+    	</tr>
 	</table>
 	<a href="goMenu">Volver</a>
 	</div>

@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="05_gestor_alumnos"/>
 			<item value="04_buscador_basedatos"/>
 			<item value="03_libreria"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="05_gestor_alumnos"/>
 			<item value="04_buscador_basedatos"/>
 			<item value="03_libreria"/>
 		</list>

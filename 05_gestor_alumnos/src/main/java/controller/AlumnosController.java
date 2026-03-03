@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import model.Alumno;
@@ -25,17 +27,19 @@ public class AlumnosController {
 	
 	@GetMapping("alumnos")
 	public String mostrarAlumnosCurso(Model model, @RequestParam("curso")String curso) {
-		model.addAttribute("alumnosCurso", alumnosService.mostrarAlumnosCurso(curso));
+		model.addAttribute("alumnos", alumnosService.mostrarAlumnosCurso(curso));
+		model.addAttribute("cursos", alumnosService.mostrarCursos());
 		return "consulta";
 	}
 	
 	@PostMapping("alta")
-	public String altaAlumno(Model model, 
+	public String altaAlumno(/*Model model, 
 			@RequestParam("nombre")String nombre, 
 			@RequestParam("curso")String curso, 
 			@RequestParam("email")String email, 
-			@RequestParam("nota")float nota) {
-		Alumno alumno = new Alumno(nombre, curso, email, nota);
+			@RequestParam("nota")float nota*/
+			Model model, @ModelAttribute Alumno alumno) {
+		//Alumno alumno = new Alumno(nombre, curso, email, nota);
 		if(alumnosService.guardar(alumno)) {
 			model.addAttribute("mensaje", "Alumno Guardado");
 			return "mensaje";
@@ -44,6 +48,11 @@ public class AlumnosController {
 			return "mensaje";
 		}
 		
+	}
+	@GetMapping("baja")
+	public String bajaAlumno(Model model, @RequestParam("idAlumno") int idAlumno) {
+		alumnosService.eliminar(idAlumno);
+		return "menu";
 	}
 	@GetMapping({"goMenu", "/"})
 	public String menu() {

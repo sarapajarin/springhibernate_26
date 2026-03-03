@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=03_libreria/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;service{LibrosService.java[LibrosService" modifiers="513" timestamp="1772133129406"/>
+    <typeInfo handle="=05_gestor_alumnos/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;repository{AlumnosRepository.java[AlumnosRepository" modifiers="513" timestamp="1772552921673"/>
+    <typeInfo handle="=05_gestor_alumnos/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;service{AlumnosService.java[AlumnosService" modifiers="513" timestamp="1772550634770"/>
 </typeInfoHistroy>
