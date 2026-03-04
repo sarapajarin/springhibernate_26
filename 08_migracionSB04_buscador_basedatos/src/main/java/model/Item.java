@@ -1,0 +1,31 @@
+package model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Entity
+@Table(name="items")
+public class Item {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //el resto solo se usan en oracle
+	private int idItem;
+	private String url;
+	private String tematica;
+	private String descripcion;
+	
+	//añadimos un nuevo contructor para poder crear items sin tener que poner el iditem que genera la bbdd
+	public Item(String url, String tematica, String descripcion) {
+		this.url = url;
+		this.tematica = tematica;
+		this.descripcion = descripcion;
+	}
+	
+}
