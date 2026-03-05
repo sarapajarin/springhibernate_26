@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		<form action="alumnos" method="get">
+			<label>Seleccione curso</label><br>
+			<select name="curso"> <!--nombre del request param que queremospasar a la funcion que muestra los alumnos en funcion del curso-->
+				<option th:each="c:${cursos}" th:text="${c}" th:value="${c}">
+			</select>
+			<button type="submit">Ver alumnos</button>
+		</form>
+	<table>
+		<tr>
+			<th>Nombre</th>
+			<th>Email</th>
+			<th>Nota</th>
+		</tr>
+		<tr th:each="a : ${alumnos}">
+	        <td th:text="${a.nombre}"></td>
+	        <td th:text="${a.email}"></td>
+	        <td th:text="${a.nota}"></td>
+	        <td><a th:href="@{baja(idAlumno=${a.idAlumno})}">Eliminar</a></td>
+    	</tr>
+	</table>
+	<a href="goMenu">Volver</a>
+	</div>
+	</center>
+</body>
+</html>
