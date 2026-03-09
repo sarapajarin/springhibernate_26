@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2 th:text="${session.usuario}"></h2>
+	<center>
+		<form action="libros" method="get">
+			Seleccione Tema:
+			<select name="temaSel">
+				<option value="0" th:selected="${idTemaSel==0}" >-Todos-</option>
+				<option th:each="c:${temas}" th:selected="${idTemaSel==c.idTema}" th:text="${c.tema}" th:value="${c.idTema}"></option>
+			</select><br><br>
+			<input type="submit" value="Ver libros">
+		</form>
+		<br><br>
+		
+		<table border="1" th:if="${libros}">
+			<tr><th>Título</th><th>Autor</th><th>Precio</th><th>Tema</th><th></th></tr>
+			<tr th:each="a:${libros}">
+				<td th:text="${a.titulo}"></td>
+				<td th:text="${a.autor}"></td>
+				<td th:text="${a.precio}"></td>
+				<td th:text="${a.nombreTema}"></td>
+				<td><a th:href="@{agregar(temaSel=${idTemaSel},isbn=${a.isbn})}">Agregar</a></td>
+			</tr>
+		</table>
+		<br><br>
+		<div th:if="${session.carrito}">
+			<h2>Carrito:</h2>
+			<table border="1">
+				<tr><th>Título</th><th>Autor</th><th>Precio</th><th>Tema</th><th></th></tr>
+				<tr th:each="a,i:${session.carrito}">
+					<td th:text="${a.titulo}"></td>
+					<td th:text="${a.autor}"></td>
+					<td th:text="${a.precio}"></td>
+					<td th:text="${a.nombreTema}"></td>
+					<td><a th:href="@{quitar(temaSel=${idTemaSel},posicion=${i.index})}">Quitar</a></td>
+				</tr>
+			</table>
+		</div>
+		<br><br>
+		
+		
+		<a href="goLogin">Volver</a>
+	
+	</center>
+</body>
+</html>
