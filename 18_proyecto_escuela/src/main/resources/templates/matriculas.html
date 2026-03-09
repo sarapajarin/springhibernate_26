@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		<form action="verMatriculas">
+			<select>
+				<option th:each="c:${cursos}" th:selected="${codCurso==c.codCurso}" th:text="c.nombreCurso"></option>
+			</select>
+			<button type="submit">Ver Matriculas</button>
+		</form>
+		<br><br>
+		<table border="1">
+			<tr>
+				<th>Nombre</th>
+				<th>Curso</th>
+				<th>Horario</th>
+				<th>Email</th>
+			</tr>
+			<tr>
+				<td th:each="a:${matriculas}" th:text="a.AlumnoDto.nombre"></td>
+				<td th:each="a:${matriculas}" th:text="a.CursoDto.nombreCurso"></td>
+				<td th:each="a:${matriculas}" th:text="a.CursoDto.horario"></td>
+				<td th:each="a:${matriculas}" th:text="a.AlumnoDto.email"></td>
+		</table>
+	</center>
+</body>
+</html>
