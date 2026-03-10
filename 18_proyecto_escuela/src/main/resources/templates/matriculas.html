@@ -6,9 +6,9 @@
 </head>
 <body>
 	<center>
-		<form action="verMatriculas">
-			<select>
-				<option th:each="c:${cursos}" th:selected="${codCurso==c.codCurso}" th:text="c.nombreCurso"></option>
+		<form action="verMatriculas" method="get">
+			<select name="codCurso">
+				<option th:each="c:${cursos}" th:selected="${codCurso==c.codCurso}" th:text="${c.nombreCurso}" th:value="${c.codCurso}"></option>
 			</select>
 			<button type="submit">Ver Matriculas</button>
 		</form>
@@ -20,11 +20,11 @@
 				<th>Horario</th>
 				<th>Email</th>
 			</tr>
-			<tr>
-				<td th:each="a:${matriculas}" th:text="a.AlumnoDto.nombre"></td>
-				<td th:each="a:${matriculas}" th:text="a.CursoDto.nombreCurso"></td>
-				<td th:each="a:${matriculas}" th:text="a.CursoDto.horario"></td>
-				<td th:each="a:${matriculas}" th:text="a.AlumnoDto.email"></td>
+			<tr th:each="a:${matriculas}">
+				<td th:text="${a.alumno.nombre}"></td>
+				<td th:text="${a.curso.nombreCurso}"></td>
+				<td th:text="${a.curso.horario}"></td>
+				<td th:text="${a.alumno.email}"></td>
 		</table>
 	</center>
 </body>

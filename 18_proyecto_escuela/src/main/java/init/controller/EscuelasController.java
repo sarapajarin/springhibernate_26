@@ -19,11 +19,11 @@ public class EscuelasController {
 		model.addAttribute("cursos", escuelaService.cursos());
 		return "matriculas";
 		}
-	@GetMapping("verMatriculados")
-	public String verMatriculados(Model model, @RequestParam int codCurso) {
+	@GetMapping("verMatriculas")
+	public String verMatriculados(Model model, @RequestParam ("codCurso") int codCurso) {
 		model.addAttribute("matriculas", escuelaService.obtenerMatriculas(codCurso));
 		model.addAttribute("cursos", escuelaService.cursos());
-		model.addAttribute("cursoSel", codCurso);
+		model.addAttribute("codCurso", codCurso);
 		return "matriculas";
 		}
 }
