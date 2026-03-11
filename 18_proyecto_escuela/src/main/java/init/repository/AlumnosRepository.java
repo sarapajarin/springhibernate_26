@@ -11,4 +11,5 @@ public interface AlumnosRepository extends JpaRepository<Alumno, String> {
 	
 	@Query("select a from Alumno a join a.cursos c where c.codCurso=?1")
 	List<Alumno>findByCodigoCurso(int codigo);
+	
 }
