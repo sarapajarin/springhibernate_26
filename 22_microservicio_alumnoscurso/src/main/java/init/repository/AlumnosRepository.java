@@ -12,7 +12,7 @@ import init.model.Alumno;
 public interface AlumnosRepository extends JpaRepository<Alumno, Integer> {
 	//hay que hacer metodos pensado en base de datos, en como se haria; hay que hacer metodos de acciones simples.
 
-	Alumno findFirstByNombreandCurso(String nombre, String curso);
+	Alumno findFirstByNombreAndCurso(String nombre, String curso);
 	//BUSCADOR DE CURSOS
 	@Query("select distinct(a.curso) from Alumno a")
 	List<String> findAllCursos();

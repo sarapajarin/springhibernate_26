@@ -1,0 +1,9 @@
+C:\curso_spring\proyectos\41_microservicio_productos\src\main\java\init\Application.java
+C:\curso_spring\proyectos\41_microservicio_productos\src\main\java\init\config\SecurityConfig.java
+C:\curso_spring\proyectos\41_microservicio_productos\src\main\java\init\controller\ProductosController.java
+C:\curso_spring\proyectos\41_microservicio_productos\src\main\java\init\dtos\ProductoDto.java
+C:\curso_spring\proyectos\41_microservicio_productos\src\main\java\init\mappers\Mapeador.java
+C:\curso_spring\proyectos\41_microservicio_productos\src\main\java\init\model\Producto.java
+C:\curso_spring\proyectos\41_microservicio_productos\src\main\java\init\repository\ProductosRepository.java
+C:\curso_spring\proyectos\41_microservicio_productos\src\main\java\init\service\implementations\ProductosServiceImpl.java
+C:\curso_spring\proyectos\41_microservicio_productos\src\main\java\init\service\interfaces\ProductosService.java

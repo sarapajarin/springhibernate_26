@@ -21,7 +21,7 @@ public class AlumnosServiceImpl implements AlumnosService {
 	@Override
 	public boolean guardar(AlumnoDto alumno) {
 		Alumno alumnoAux =mapeador.alumnoDtoToEntity(alumno);
-		if(alumnosRepository.findFirstByNombreandCurso(alumno.getNombre(), alumno.getCurso())== null) {
+		if(alumnosRepository.findFirstByNombreAndCurso(alumno.getNombre(), alumno.getCurso())== null) {
 			alumnosRepository.save(alumnoAux);
 			return true;
 			}
