@@ -1,0 +1,54 @@
+# Conversion to YAML from Properties formar report
+# Warnings:
+# - The yaml file had comments which are lost in the refactoring!
+spring:
+  application:
+    name: servicio_alumnos
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+db:
+  security:
+    driver: com.mysql.cj.jdbc.Driver
+server:
+  servlet:
+    context-path: /escuela
+  port: 8005
+jwt:
+  properties:
+    timeout: 500000
+    key: 112345k56k6k7k7km5m5m5n4n3n2n3525nn253k345k
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/alumnoscursos
+    username: root
+    password: root
+db:
+  security:
+    url: jdbc:mysql://localhost:3306/springsecurity
+    user: root
+    password: root
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:mysql://${HOST_DB}:${PORT_DB}/alumnoscursos
+    username: ${USER_DB}
+    password: ${PASS_DB}
+db:
+  security:
+    url: jdbc:mysql://${HOST_DB}:${PORT_DB}/springsecurity
+    user: ${USER_DB}
+    password: ${PASS_DB}
+

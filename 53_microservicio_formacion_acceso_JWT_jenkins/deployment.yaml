@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: formacion-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: formacion
+  template:
+    metadata:
+      labels:
+        app: formacion
+    spec:
+      containers:
+        - name: formacion-container
+          image: imgformacion
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9005
+  

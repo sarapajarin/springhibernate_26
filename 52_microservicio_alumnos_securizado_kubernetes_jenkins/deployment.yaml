@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alumnos-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: alumnos
+  template:
+    metadata:
+      labels:
+        app: alumnos
+    spec:
+      containers:
+        - name: alumnos-container
+          image: imgalumnos
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8005
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
+            - name: HOST_DB
+              value: "10.2.1.19"
+            - name: PORT_DB
+              value: "3306"
+            - name: USER_DB
+              value: "root"
+            - name: PASS_DB
+              value: "root"
+

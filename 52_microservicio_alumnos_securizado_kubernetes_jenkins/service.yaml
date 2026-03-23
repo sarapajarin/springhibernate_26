@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: alumnos-service
+spec:
+  selector:
+    app: alumnos
+  type: NodePort # Hace accesible el servicio desde fuera del clúster
+  ports:
+    - protocol: TCP
+      port: 80      # Puerto del servicio en Kubernetes
+      targetPort: 8005 # Puerto del contenedor
+      nodePort: 30001   # Puerto en la máquina física (Minikube/Kubernetes lo expone aquí)

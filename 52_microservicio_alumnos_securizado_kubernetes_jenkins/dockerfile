@@ -1,0 +1,3 @@
+FROM openjdk:21-ea-jdk-slim
+COPY target/*.jar apps/alumnos.jar
+ENTRYPOINT java -jar apps/alumnos.jar
